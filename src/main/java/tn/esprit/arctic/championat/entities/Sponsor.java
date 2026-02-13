@@ -1,16 +1,21 @@
-package entities;
-
-
+package tn.esprit.arctic.championat.entities;
+import  jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Sponsor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSponsor;
 
     private String nom;
@@ -20,4 +25,13 @@ public class Sponsor {
     private Float budgetAnnuel;
 
     private Boolean bloquerContrat;
+
+    Boolean archived;
+
+    LocalDate dateCreation;
+
+    LocalDate dateDerniereModification;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy="sponsor")
+    private List<Contrat> contrats;
 }
