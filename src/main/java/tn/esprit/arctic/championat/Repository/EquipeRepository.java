@@ -1,7 +1,8 @@
 package tn.esprit.arctic.championat.Repository;
 
-public interface EquipeRepository {
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import tn.esprit.arctic.championat.entities.Equipe;
 
-
+public interface EquipeRepository extends JpaRepository<Equipe, Long> {
 }
