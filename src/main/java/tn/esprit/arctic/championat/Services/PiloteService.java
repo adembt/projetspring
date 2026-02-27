@@ -1,14 +1,23 @@
 package tn.esprit.arctic.championat.Services;
 
-import tn.esprit.arctic.championat.entities.Pilote;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.arctic.championat.Repository.PiloteRepository;
+import tn.esprit.arctic.championat.entities.Pilote;
 
-public class PiloteService implements IPiloteService{
-    PiloteRepository pr;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class PiloteService implements IPiloteService {
+
+    private final PiloteRepository pr;
 
     @Override
-    public String addPiole(Pilote pilote) {
+    public String addPilote(Pilote pilote) {
         pr.save(pilote);
-        return "added successfully ";
+        return "added successfully";
     }
+
+
 }
